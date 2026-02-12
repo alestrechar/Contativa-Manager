@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}Contativa Contabilidade{% endblock %}
+
+{% block main_styles %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/redefinir_senha.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <br>
+    <h2>Redefinir Senha</h2>
+    <center>
+        <form action="{{ url_for('routes.codigo_senha') }}" method="get">
+            <div class="caixatexto1">
+                Informe o e-mail cadastrado no campo abaixo, será enviado um código neste e-mail, assim você poderá redefinir a senha. 
+            </div>
+            <br>
+            <hr width="100%">
+            <br>
+            <div class="input-container">
+                <input type="e-mail" id="e-mail" name="e-mail" placeholder="E-mail" required>
+                <label class="input-title">E-mail:</label>
+            </div>
+            <div class="caixabotao">
+                <button type="submit" id="enviarcodigo" class="buttonenviarcodigo">Enviar</button>
+            </div>
+            <div class="caixatexto2">
+                <a href="{{ url_for('routes.login') }}">Voltar a tela de login.</a>
+            </div>
+        </form>
+        <br>
+    </center>
+</div>
+{% endblock %}

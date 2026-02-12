@@ -1,0 +1,168 @@
+{% extends 'base.html' %}
+
+{% block title %}Contativa Contabilidade{% endblock %}
+
+{% block main_styles %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/documentos.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<div class="container1">
+    <br>
+    <h1>Upload de Documentos</h1>
+    {% if mensagem %}
+    <div role="alert">
+        <p class="mensagem">{{ mensagem }}</p>
+    </div>
+    {% endif %}
+    <br><Br>
+    <form action="{{ url_for('routes.documentos') }}" method="post" enctype="multipart/form-data" class="mb-8">
+        <div class="container-2">
+            <table class="form-table">
+                <!-- Primeira linha -->
+                <tr>
+                    <!-- Primeira coluna da primeira linha -->
+                    <td class="form-column">
+                        <div class="empresa">
+                            <label class="block text-gray-700 text-sm font-bold mb-2">Empresa:</label>
+                            <select name="empresa" class="option-empresa" required>
+                                <option value="">Selecione a empresa</option>
+                                {% for empresa in empresas %}
+                                <option value="{{ empresa.id }}">{{ empresa.nome_empresa }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </td>
+                    
+                    <!-- Segunda coluna da primeira linha -->
+                    <td class="form-column">
+                        <div class="arquivo-wrapper">
+                            <label for="arquivo-input" class="arquivo-label">Escolher Arquivo</label>
+                            <span class="arquivo-nome">Nenhum arquivo selecionado</span>
+                            <input 
+                                type="file" 
+                                name="arquivo" 
+                                id="arquivo-input" 
+                                class="arquivo-input" 
+                                required ="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                            >
+                        </div>
+                    </td>
+                </tr>
+        
+                <!-- Segunda linha -->
+                <tr>
+                    <!-- Primeira coluna da segunda linha -->
+                    <td class="form-column">
+                        <div class="tipo">
+                            <label class="block text-gray-700 text-sm font-bold mb-2">Tipo:</label>
+                            <select name="tipo" id="tipo" class="option-tipo" required>
+                                <option value="">Selecione o tipo</option>
+                                <option value="documentos">Documentos</option>
+                                <option value="impostos">Impostos</option>
+                            </select>
+                        </div>
+                    </td>
+                    
+                    <!-- Segunda coluna da segunda linha -->
+                    <td class="form-column">
+                        <p class="text-sm text-gray-600 mt-1">
+                            *Formatos aceitos: PDF, DOC, DOCX, XLS, XLSX
+                        </p>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <br>
+        <div class="caixabotaoenviar">
+            <button type="submit" class="enviar">
+               Enviar Documento
+            </button>
+        </div>
+    </form>
+</div>
+<br>
+<div class="container2">
+    <br>
+    <h2>Documentos</h2>
+        <br>
+        <div class="overflow-x-auto">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 font-medium text-gray-700 tracking-wider">Empresa</th>
+                        <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 font-medium text-gray-700 tracking-wider">Nome</th>
+                        <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 font-medium text-gray-700 tracking-wider">Data</th>
+                        <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 font-medium text-gray-700 tracking-wider">Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for doc in documentos %}
+                    {% if doc.tipo_documento == 'documentos' %}
+                    <tr>
+                        <td class="nome-empresa">{{ doc.nome_empresa }}</td>
+                        <td class="documentos-td">{{ doc.nome_arquivo }}</td>
+                        <td class="data">{{ doc.data_upload.strftime('%d/%m/%Y %H:%M') }}</td>
+                        <td class="documentos-td">
+                            <div class="caixabotaoexcluir">
+                                <a href="{{ url_for('routes.excluir_documento', id=doc.id) }}" onclick="return confirm('Tem certeza que deseja excluir este documento?')" class="buttonexcluir">
+                                    Excluir
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                    {% endif %}
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    <br><br>
+    <h2 class="text-xl font-bold mb-4">Impostos</h2>
+        <br>
+        <div class="overflow-x-auto">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 font-medium text-gray-700 tracking-wider">Empresa</th>
+                    <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 font-medium text-gray-700 tracking-wider">Nome</th>
+                    <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 font-medium text-gray-700 tracking-wider">Data</th>
+                    <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 font-medium text-gray-700 tracking-wider">Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for doc in documentos %} 
+                {% if doc.tipo_documento == 'impostos' %}
+                <tr>
+                    <td class="nome-empresa">{{ doc.nome_empresa }}</td>
+                    <td class="documentos-td">{{ doc.nome_arquivo }}</td>
+                    <td class="data">{{ doc.data_upload.strftime('%d/%m/%Y %H:%M') }}</td>
+                    <td class="documentos-td">
+                        <div class="caixabotaoexcluir">
+                            <a href="{{ url_for('routes.excluir_documento', id=doc.id) }}" onclick="return confirm('Tem certeza que deseja excluir este documento?')" class="buttonexcluir">
+                                Excluir
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+                {% endif %}
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+<script>
+    const fileInput = document.getElementById('arquivo-input');
+const fileName = document.querySelector('.arquivo-nome');
+
+fileInput.addEventListener('change', function () {
+    if (fileInput.files.length > 0) {
+        fileName.textContent = fileInput.files[0].name;
+    } else {
+        fileName.textContent = 'Nenhum arquivo selecionado';
+    }
+});
+</script>
+{% endblock %}

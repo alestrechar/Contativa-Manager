@@ -1,0 +1,541 @@
+body {
+  background-color: white;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+header{
+  width: 100%;
+  background-color: #fff;
+  height: 11%;
+  position: relative;
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: flex-end;
+}
+
+footer{
+  width: 100%;
+  height: 7%;
+  background-color: white;
+  box-shadow: 0px -3px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+}
+
+nav{
+  width: 55%;
+  background-color: transparent;
+  height: 50%;
+  position: absolute;
+  margin-left: 25%;
+  
+}
+
+/**************************************************************************************/
+
+/* Estilos para os botões */
+/* Estilos para os botões */
+.buttonnav, .buttonnavinicio, .buttonnavrelatorios, .buttonnavempresas, .buttonnavdocs, .buttonnavimpostos {
+  background-color: white;
+  border: none;
+  color: black; /* Cor do texto inicial */
+  text-align: center;
+  display: inline-block;
+  font-size: 13px;
+  cursor: pointer;
+  font-family: Montserrat, sans-serif;
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  border-radius: 1px;
+  transition: color 0.4s ease-in-out;
+  z-index: 1; /* Z-index para garantir que o texto fique na frente */
+}
+
+.buttonnav{
+  width: 22%;
+  height: 100%;
+  margin-left: -6px;
+}
+
+.buttonnavinicio{
+  width: 13%;
+  height: 100%;
+}
+
+.buttonnavrelatorios {
+  width: 17%;
+  height: 100%;
+  margin-left: -15px;
+}
+
+.buttonnavempresas{
+  width: 17%;
+  height: 100%;
+  margin-left: -7px;
+}
+
+.buttonnavdocs{
+  width: 21%;
+  height: 100%;
+  margin-left: -10px;
+}
+
+/* Pseudo-elemento para a faixa */
+.buttonnav::after, .buttonnavinicio::after, .buttonnavrelatorios::after, .buttonnavempresas::after, .buttonnavdocs::after, .buttonnavimpostos::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 8%; /* Altura da faixa */
+  background: linear-gradient(to top, rgba(62, 64, 149, 1), rgba(62, 64, 149, 0.2)); /* Gradiente da faixa */
+  z-index: -1; /* Coloque a faixa atrás do texto */
+  transition: height 0.4s ease-in-out;
+  pointer-events: none; /* Impede a interação com a faixa */
+}
+
+/* Pseudo-elemento para o gradiente */
+.buttonnav::before, .buttonnavinicio::before, .buttonnavrelatorios::before, .buttonnavempresas::before, .buttonnavdocs::before, .buttonnavimpostos::before {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to top, rgba(62, 64, 149, 1.2), rgba(62, 64, 149, 0)); /* Gradiente de baixo para cima */
+  transition: top 0.4s ease-in-out;
+  z-index: -1; /* Certifique-se de que está atrás do texto */
+  pointer-events: none; /* Impede a interação com o gradiente */
+}
+
+/* Efeito de hover para a faixa */
+.buttonnav:hover::after, .buttonnavinicio:hover::after, .buttonnavrelatorios:hover::after, .buttonnavempresas:hover::after, .buttonnavdocs:hover::after, .buttonnavimpostos:hover::after {
+  height: 100%; /* A faixa se expande para cobrir todo o botão */
+}
+
+/* Efeito de hover para o gradiente */
+.buttonnav:hover::before, .buttonnavinicio:hover::before, .buttonnavrelatorios:hover::before, .buttonnavempresas:hover::before, .buttonnavdocs:hover::before, .buttonnavimpostos:hover::before {
+  top: 0;
+}
+
+/* Cor do texto no hover */
+.buttonnav:hover, .buttonnavinicio:hover, .buttonnavrelatorios:hover, .buttonnavempresas:hover, .buttonnavdocs:hover, .buttonnavimpostos:hover {
+  color: white; /* Cor do texto ao passar o mouse */
+}
+
+.arrow {
+  display: inline-block;
+  position: absolute;
+  width: 0;
+  height: 0;
+  margin-left: 6%;
+  margin-top: 3%;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid silver; /* Cor inicial da seta */
+  transition: opacity 0.3s, transform 0.4s;
+  opacity: 1;
+}
+
+.buttonnavempresas:hover .arrow, .buttonnavdocs:hover .arrow, .buttonnavimpostos:hover .arrow {
+  transform: rotateX(0deg);
+  border-top-color: transparent;
+  margin-top: -0.1%;
+  border-bottom: 5px solid whitesmoke;
+  opacity: 1;
+}
+
+
+.dropdownnav {
+  position: relative;
+  display: inline-block;
+  width: 16%;
+  height: 100%;
+  margin-left: -4px;
+}
+.dropdownnav-content {
+  display: none;
+  position: absolute;
+  background-color: black;
+  min-width: 219px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+.dropdownnav-content .buttondropdown {
+  display: block;
+  width: 100%;
+  padding: 10px 20px;
+  text-align: left;
+  display: inline-block;
+  font-family: Montserrat, sans-serif;
+  font-size: 15px;
+  background-color: white;
+  color: black;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+.dropdownnav:hover .dropdownnav-content {
+  display: block;
+}
+.buttondropdown:hover{
+  background-color: #3e4095;
+  color:white;
+}
+
+.caixabotaosair{
+  width: 5.5%;
+  height: 50%;
+  background-color: transparent;
+  align-items: center;
+  align-content: center;
+  font-family: Montserrat, sans-serif;
+  font-size: 14px;
+  margin-left: 59%;
+  margin-top: 2.63%;
+}
+.buttonsair{
+  background-color: transparent;
+  color: black;
+  width: 100%;
+  height: 100%;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  font-family: Montserrat, sans-serif;
+  font-size: 14px;
+  align-self: center;
+  background-image: url('../images/sairsite.png');
+  background-repeat: no-repeat;
+  background-size: 15% 32%;
+  background-position-x: 92%;
+  background-position-y: 50%;
+}
+.buttonsair:hover{
+  text-decoration: underline;
+}
+
+.caixalogoheader{
+  width: calc(240px + (14vw - 240px));
+  height: 85%;
+  background-color: transparent;
+  position: relative;
+  margin-left: 9%;
+  margin-bottom: 0.3%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.imagem-responsiva{
+  width: 85%;
+  height: auto;
+}
+
+.logogmail{
+  width: 50%;
+  height: 9.5%;
+  background-color: transparent;
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-left: 45%;
+  justify-content: center;
+}
+.caixagmail{
+  width: 70%;
+  height: 9.5%;
+  background-color: transparent;
+  position: relative;
+  display: flex;
+  margin-left: 7%;
+  align-items: center;
+  font-size: 14px;
+}
+.logowhats{
+  width: 50%;
+  height: 11.5%;
+  background-color: transparent;
+  position: relative;
+  display: flex;
+  margin-left: 45%;
+  align-items: center;
+  justify-content: center;
+}
+.caixawhats{
+  width: 65%;
+  height: 11.5%;
+  background-color: transparent;
+  position: relative;
+  display: flex;
+  margin-left: 7%;
+  align-items: center;
+  font-size: 14px;
+}
+.logoinsta{
+  width: 50%;
+  height: 11.5%;
+  background-color: transparent;
+  position: relative;
+  display: flex;
+  margin-left: 45%;
+  align-items: center;
+  justify-content: center;
+}
+.caixainsta{
+  width: 65%;
+  height: 11.5%;
+  background-color: transparent;
+  position: relative;
+  display: flex;
+  margin-left: 7%;
+  align-items: center;
+  font-size: 14px;
+}
+.logotelefone{
+  width: 50%;
+  height: 11.5%;
+  background-color: transparent;
+  position: relative;
+  display: flex;
+  margin-left: 45%;
+  align-items: center;
+  justify-content: center;
+}
+.caixatelefone{
+  width: 65%;
+  height: 11.5%;
+  background-color: transparent;
+  position: relative;
+  display: flex;
+  margin-left: 7%;
+  align-items: center;
+  font-size: 14px;
+}
+.imagem-responsiva-contato{
+  width: 100%;
+  height: auto;
+}
+
+a:link{
+  color: rgb(0, 0, 197);
+}
+
+a:hover{
+  color: blue;
+}
+
+.caixadireitos{
+  width: 30%;
+  height: 100%;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Montserrat, sans-serif;
+  font-size: 14px;
+  margin-left: 36%;
+  color: gray;
+}
+.caixaprivacidade{
+  width: 20%;
+  height: 100%;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  font-family: Montserrat, sans-serif;
+  font-size: 14px;
+  margin-left: 1%;
+}
+.caixacontato{
+  width: 5%;
+  height: 100%;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  font-family: Montserrat, sans-serif;
+  font-size: 14px;
+  margin-left: 2%;
+}
+
+.h2privacidade {
+  margin-top: 0;
+  text-align: center;
+  color: #3e4095;
+  font-weight: lighter;
+  font-size: 28px;
+}
+
+.h2contato {
+  margin-top: 0;
+  text-align: center;
+  color: #3e4095;
+  font-weight: lighter;
+  font-size: 28px;
+}
+
+h2 {
+  margin-top: 0;
+  text-align: center;
+  color: #3e4095;
+  font-weight: lighter;
+  font-size: 28px;
+}
+
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1;
+}
+
+/* Estilo para o conteúdo do popup */
+.popupprivacidade {
+  display: none;
+  position: fixed;
+  width: 30%;
+  height: 43%;
+  text-align: justify;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 25px 25px 25px 25px;
+  z-index: 2;
+  transition: width 0.3s ease-in-out;
+  overflow: auto;
+}
+.popupprivacidade::-webkit-scrollbar {
+  scrollbar-width: thin;
+}
+.popupprivacidade::-webkit-scrollbar-thumb {
+  background-color: #ccc; /* Cor do indicador de rolagem */
+}
+
+.popupcontato {
+  display: none;
+  position: fixed;
+  width: 20%;
+  height: 30%;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding-top: 30px;
+  padding-bottom: 25px;
+  padding-left: 10px;
+  padding-right: 10px;
+  z-index: 2;
+  overflow: auto;
+}
+.popupcontato::-webkit-scrollbar {
+  scrollbar-width: thin;
+}
+.popupcontato::-webkit-scrollbar-thumb {
+  background-color: #ccc; /* Cor do indicador de rolagem */
+}
+
+/* Estilo para o botão de fechar */
+.fechar {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 35px;
+}
+
+.buttonprivacidade{
+  background-color: transparent;
+  color: gray;
+  width: 65.5%;
+  height: 100%;
+  border: none;
+  cursor: pointer;
+  font-family: Montserrat, sans-serif;
+  font-size: 14px;
+  margin-left: auto;
+  align-self: center;
+}
+.buttonprivacidade:hover{
+  text-decoration: underline;
+}
+
+.buttoncontato{
+  background-color: transparent;
+  color: gray;
+  width: 100%;
+  height: 100%;
+  border: none;
+  cursor: pointer;
+  font-family: Montserrat, sans-serif;
+  font-size: 14px;
+  align-self: center;
+}
+.buttoncontato:hover{
+  text-decoration: underline;
+}
+
+li {
+  font-size: 15px;
+}
+
+@media (max-width: 1920px) {
+  .caixadireitos, .buttoncontato, .buttonprivacidade {
+      font-size: calc(8px + (14 - 8) * ((100vw - 100px) / (1920 - 100)));
+  }
+  .popupprivacidade {
+      font-size: calc(6px + (15.7 - 6) * ((100vw - 100px) / (1920 - 100)));
+  }
+  .h2privacidade {
+      font-size: calc(13px + (28 - 13) * ((100vw - 100px) / (1920 - 100)));
+  }
+  .h2contato {
+    font-size: calc(13px + (28 - 13) * ((100vw - 100px) / (1920 - 100)));
+}
+  .fechar {
+      font-size: calc(25px + (35 - 25) * ((100vw - 100px) / (1920 - 100)));
+  }
+  .caixagmail, .caixainsta, .caixawhats, .caixatelefone {
+      font-size: calc(4px + (14 - 4) * ((100vw - 100px) / (1920 - 100)));
+  }
+  .buttonnav, .buttonnavinicio, .buttonnavrelatorios, .buttonnavempresas, .buttonnavdocs, .buttonnavimpostos {
+      font-size: calc(5px + (13.5 - 5) * ((100vw - 100px) / (1920 - 100)));
+  }
+  .buttonsair {
+    font-size: calc(6px + (14.5 - 6) * ((100vw - 100px) / (1920 - 100)));
+  }
+}
+
+
+/* CRIAR UMA TABELA PARA O POPUP CONTATO, COM UMA COLUNA DE LOGOS E UMA DE CONTEUDO, PARA QUE FIQUEM ALINHADAS*/
+
+table {
+  border: 1px solid transparent;
+  width: 90%;
+  margin-left: 5%;
+  margin-top: -20px;
+}
+
+td {
+  border: 1px solid transparent;
+  padding-top: 10px;
+}
+
+tr {
+  border: 1px solid transparent;
+}
+
+.coluna-logo {
+  width: 25%;
+  height: 35px;
+}
+

@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% block title %}Contativa Contabilidade{% endblock %}
+
+{% block main_styles %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/empresas.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <br>
+    <h2>Empresas Cadastradas</h2>
+    <br><Br>
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Nome da Empresa</th>
+                    <th>CNPJ</th>
+                    <th>CNAE</th>
+                    <th>Cidade</th>
+                    <th>Estado</th>
+                    <th>Sócio</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for empresa in empresas %}
+                <tr>
+                    <td colspan="7" class="colspan">
+                      <hr> <!-- Linha horizontal para separação -->
+                    </td>
+                </tr>
+                <tr>
+                    <td class="nome-empresa">{{ empresa.nome_empresa }}</td>
+                    <td class="cnpj">{{ empresa.cnpj }}</td>
+                    <td class="cnae">{{ empresa.cnae }}</td>
+                    <td class="cidade">{{ empresa.cidade }}</td>
+                    <td class="estado">{{ empresa.estado }}</td>
+                    <td class="nomesocio">{{ empresa.nomesocio }}</td>
+                    <td>
+                        <div class="caixabotaoeditar">
+                            <a href="{{ url_for('routes.editar_empresa', id=empresa.id) }}" class="buttoneditar">
+                                Editar
+                            </a>
+                        </div>
+                        <div class="caixabotaoinativar">
+                            {% if empresa.status == 1 %}
+                            <a href="#" onclick="confirmarInativacao({{ empresa.id }})" class="buttoninativar">
+                                Inativar
+                            </a>
+                            {% else %}
+                            <a href="{{ url_for('routes.reativar_empresa', id=empresa.id) }}" class="buttoninativar">
+                                Reativar
+                            </a>
+                            {% endif %}
+                        </div>
+                    </td>
+                </tr>
+                
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script>
+function confirmarInativacao(id) {
+    if (confirm('Tem certeza que deseja inativar esta empresa?')) {
+        window.location.href = "{{ url_for('routes.inativar_empresa', id=0) }}".replace('0', id);
+    }
+}
+</script>
+{% endblock %}

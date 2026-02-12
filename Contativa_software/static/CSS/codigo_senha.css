@@ -1,0 +1,151 @@
+main{
+    width: 100%;
+    height: 83%;
+    background-color: whitesmoke;
+    justify-content: center; /* Centraliza horizontalmente */
+    display: flex;
+    align-items: center;
+}
+
+.container {
+    background-color: #fff;
+    width: 400px;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    font-family: Montserrat, sans-serif;
+    display: inline-block;
+    justify-content: center;
+    
+}
+.caixabotao{
+    width: 39%;
+    background-color: transparent;
+    position: relative;
+    margin-left: 235px;
+}
+.caixatexto1{
+    width: 100%;
+    height: 5%;
+    position: relative;
+    background-color: transparent;
+    font-size: 13px;
+    text-align: justify;
+    font-size: 14px;
+}
+
+h2 {
+    margin-top: 0;
+    text-align: center;
+    color: #3e4095;
+    font-weight: lighter;
+    font-size: 28px;
+}
+
+form {
+    margin-top: 30px;
+}
+
+input[type="password"]{
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: none;
+    box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+}
+
+input[type="text"]{
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: none;
+    box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+}
+
+.input-container {
+    position: relative;
+    width: 100%;
+}
+
+.input-title {
+    position: absolute;
+    top: 5px; /* Ajuste a distância do título ao input conforme necessário */
+    left: 7px; /* Ajuste a posição do título conforme necessário */
+    background-color: #fff; /* Cor do fundo do título (para cobrir o texto do input) */
+    padding: 0 6px; /* Espaçamento interno do título */
+    pointer-events: none; /* Impede que o título seja clicável */
+    transition: top 0.2s ease, font-size 0.2s ease; /* Animação suave */
+    opacity: 0;
+}
+
+input:focus + .input-title,
+input:not(:placeholder-shown) + .input-title {
+    top: -10px; /* Ajuste a posição vertical do título quando o input está em foco */
+    font-size: 14px; /* Ajuste o tamanho da fonte do título quando o input está em foco */
+    opacity: 1;
+}
+
+input[placeholder]::placeholder{
+    font-size: 14px;
+}
+input:focus {
+    outline-color:  rgb(0, 0, 197); 
+}
+input:focus::placeholder {    
+    color: transparent;
+}
+
+
+.buttonredefinir[type="submit"] {
+    background-color: #3e4095;
+    color: white;
+    width: 100%;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-family: Montserrat, sans-serif;
+    border-radius: 4px;
+    transition: transform 0.3s;
+    font-size: 15.5px;
+}
+
+.buttonredefinir[type="submit"]:hover{
+    background-color: white;
+    transform: scale(0.90);
+    color: #3e4095;
+    border: 1px solid #3e4095;
+}
+
+.button-link {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+a:link{
+    color: rgb(0, 0, 197);
+}
+
+a:hover{
+    color: blue;
+}
+
+#redefinir_senha, #codigo{
+    height: 45px;
+    border: 1px solid #ccc; 
+    padding-left: 12px;
+}
+
+#codigo:hover{
+    border-color: rgb(0, 0, 197);
+} 
+
+#redefinir_senha:hover{
+    border-color:  rgb(0, 0, 197);
+}
+
+#redefinir{
+    height: 45px;
+}

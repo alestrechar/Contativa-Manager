@@ -1,0 +1,471 @@
+{% extends 'base.html' %}
+
+{% block title %}Contativa Contabilidade{% endblock %}
+
+{% block main_styles %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/cadastro_empresa_cliente.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+
+    <div class="container">
+        <br>
+        <center>
+        <h2>Cadastro de Empresas:</h2>
+        <div class="container-interno">
+        <form method="POST">
+            <div class="caixainput">
+                <div class="input-container">
+                    <input type="text" id="cnpj" name="cnpj" oninput="formatCNPJ(this)" maxlength="18" placeholder="CNPJ" required>
+                    <label class="input-titleesquerda">CNPJ:</label>
+                </div>
+                <div class="input-container">
+                    <input type="text" id="nome_empresa" name="nome_empresa" placeholder="Nome da empresa" oninput="keepCursorPosition(this)" required>
+                    <label class="input-titledireita">Nome da empresa:</label>
+                </div>  
+            </div>
+            <br>
+            <div class="caixainput">
+                <div class="input-container">
+                    <input type="text" id="instestadual" name="instestadual" placeholder="Inscrição Estadual" oninput="formatInscricoes(this)" required>
+                    <label class="input-titleesquerda">Inscrição Estadual:</label>
+                </div>
+                <div class="input-container">
+                    <input type="text" id="instmunicipal" name="instmunicipal" placeholder="Inscrição Municipal" oninput="formatInscricoes(this)" required>
+                    <label class="input-titledireita">Inscrição Municipal:</label>
+                </div>
+            </div>
+            <br>
+            <div class="caixainput">
+                <div class="input-container">
+                    <input type="text" class="inputcapital" id="capital" name="capital" placeholder="Capital Social" required>
+                    <label class="input-titlecapital">Capital Social:</label>
+                </div>
+                <div class="input-container">
+                    <input type="text" class="inputtributacao" id="tributacao" name="tributacao" placeholder="Forma de tributação" required>
+                    <label class="input-titletributacao">Forma de tributação:</label>
+                </div>
+                <div class="input-container">
+                    <input type="text" class="inputcnae" id="cnae" name="cnae" placeholder="CNAE" oninput="formatCNAE(this)" maxlength="7" required>
+                    <label class="input-titlecnae">CNAE:</label>
+                </div>
+            </div>
+            <br>
+            <div class="caixainput">
+                <label class="labelendereco">Endereço:</label>
+                <div class="input-container">
+                    <input type="text" class="inputcep" id="cep" name="cep" placeholder="CEP" oninput="formatCEP(this)" maxlength="10" required>
+                    <label class="input-titlecep">CEP:</label>
+                </div>
+                <div class="input-container">
+                    <input type="text" class="inputrua" id="rua" name="rua" placeholder="Rua" oninput="keepCursorPosition(this)" required>
+                    <label class="input-titlerua">Rua:</label>
+                </div>
+                <div class="input-container">
+                    <input type="text" class="inputnumero" id="numero" name="numero" placeholder="Número" required>
+                    <label class="input-titlenumero">Número:</label>
+                </div>
+            </div>
+            <br>
+            <div class="caixainput">
+                <div class="input-container">
+                    <input type="text" class="inputcidade" id="cidade" name="cidade" placeholder="Cidade" oninput="keepCursorPosition(this)" required>
+                    <label class="input-titlecidade">Cidade:</label>
+                </div>
+                <div class="input-container">
+                    <input type="text" class="inputestado" id="estado" name="estado" placeholder="Estado (sigla):" oninput="keepCursorPosition(this)" maxlength="2" required>
+                    <label class="input-titleestado">Estado (sigla):</label>
+                </div>
+            </div>
+            <br>
+            <hr width="95%">
+            <br>
+            <div class="caixainput">
+                <label class="labelsocio">Sócio 1:</label>
+                <div class="input-container">
+                    <input type="text" class="inputnomesocio" id="nomesocio" name="nomesocio" placeholder="Nome Sócio" oninput="keepCursorPosition(this)" required>
+                    <label class="input-titlenomesocio">Nome Sócio:</label>
+                </div>
+            </div>
+            <br>
+            <div class="caixainput">
+                <div class="input-container">
+                    <input type="text" class="inputcpfsocio" id="cpfsocio" name="cpfsocio" placeholder="CPF" oninput="formatCPF(this)" maxlength="14" required >
+                    <label class="input-titlecpfsocio">CPF:</label>
+                </div>
+                <div class="input-container">
+                    <input type="email" class="inputemail" id="emailsocio" name="emailsocio" placeholder="E-mail" required >
+                    <label class="input-titleemail">E-mail:</label>
+                </div>
+            </div>
+            <br>
+            <div class="caixainput">
+                <label class="labelenderecosocio">Endereço Sócio 1:</label>
+                <div class="input-container">
+                    <input type="text" class="inputcepsocio" id="cepsocio1" name="cepsocio1" placeholder="CEP" oninput="formatCEP(this)" maxlength="10" required>
+                    <label class="input-titlecep">CEP:</label>
+                </div>
+                <div class="input-container">
+                    <input type="text" class="inputruasocio" id="ruasocio1" name="ruasocio" placeholder="Rua" oninput="keepCursorPosition(this)" required>
+                    <label class="input-titleruasocio">Rua:</label>
+                </div>
+                <div class="input-container">
+                    <input type="text" class="inputnumero" id="numerosocio1" name="numerosocio" placeholder="Número" required>
+                    <label class="input-titlenumero">Número:</label>
+                </div>
+            </div>
+            <br>
+            <div class="caixainput">
+                <div class="input-container">
+                    <input type="text" class="inputcidade" id="cidadesocio1" name="cidadesocio" placeholder="Cidade" oninput="keepCursorPosition(this)" required>
+                    <label class="input-titlecidade">Cidade:</label>
+                </div>
+                <div class="input-container">
+                    <input type="text" class="inputestado" id="estadosocio1" name="estadosocio" placeholder="Estado (sigla):" oninput="keepCursorPosition(this)" maxlength="2" required>
+                    <label class="input-titleestado">Estado (sigla):</label>
+                </div>
+            </div>
+            <br>
+            <div class="socios-extras">
+                <!-- Espaço onde campos de sócios adicionais serão adicionados dinamicamente -->
+            </div>
+            <div class="caixaadicionarsocio">
+                <button type="button" class="buttonadicionarsocio" id="adicionar-socio" name="adicionar-socio" >Adicionar Sócio</button>
+            </div>
+            <div class="caixaremoversocio">
+                <button type="button" class="buttonremoversocio" id="remover-socio" name="remover-socio" >Remover Sócio</button>
+            </div>
+            <br>
+            <hr width="95%">
+            <br>
+            <div class="caixainput">
+                <label class="labelsenha">Senha Genérica:</label>
+                <div class="input-container">
+                    <input type="password" class="inputsenha" id="senha" name="senha" placeholder="Senha" required>
+                    <label class="input-titlesenha">Senha:</label>
+                </div>
+                <div class="input-container">
+                    <input type="password" class="inputrepetirsenha" id="repetirsenha" name="repetirsenha" placeholder="Confirme a senha" required>
+                    <label class="input-titlerepetirsenha">Confirme a senha:</label>
+                </div>
+            </div>
+            <br>
+            <div class="caixabotao">
+                <button type="submit" id="cadastrar" class="buttoncadastrar">Cadastrar</button>
+            </div>
+        </form>
+        <br>
+        </div>
+    </center>
+        <br><br>
+    </div>
+
+<script>
+    function keepCursorPosition(input) {
+        cursorPosition = input.selectionStart;
+        const uppercaseValue = input.value.toUpperCase();
+        input.value = uppercaseValue;
+        
+        if (cursorPosition < uppercaseValue.length) {
+            input.setSelectionRange(cursorPosition, cursorPosition);
+        } else {
+            input.setSelectionRange(uppercaseValue.length, uppercaseValue.length);
+        }
+    }
+    function formatCNPJ(input) {
+        // Remove qualquer caractere não numérico do valor atual do campo
+        var cnpj = input.value.replace(/\D/g, '');
+
+        // Formata o CNPJ com os caracteres '.' '/', e '-' conforme o usuário digita
+        var formattedCNPJ = '';
+            
+        for (var i = 0; i < cnpj.length; i++) {
+            if (i === 2 || i === 5) {
+            formattedCNPJ += '.';
+            } else if (i === 8) {
+            formattedCNPJ += '/';
+            } else if (i === 12) {
+            formattedCNPJ += '-';
+            }
+            formattedCNPJ += cnpj[i];
+        }
+
+        // Define o valor formatado de volta no campo
+        input.value = formattedCNPJ;
+    }
+
+    function formatCEP(input) {
+        // Remove qualquer caractere não numérico do valor atual do campo
+        var cep = input.value.replace(/\D/g, '');
+
+        // Formata o CNPJ com os caracteres '.' '/', e '-' conforme o usuário digita
+        var formattedCEP = '';
+            
+        for (var i = 0; i < cep.length; i++) {
+            if (i === 2 ) {
+            formattedCEP += '.';
+            } else if (i === 5) {
+            formattedCEP += '-';
+            }
+            formattedCEP += cep[i];
+        }
+
+        // Define o valor formatado de volta no campo
+        input.value = formattedCEP;
+    }
+
+    function formatCNAE(input) {
+        var cnae = input.value.replace(/\D/g, '');
+        var formattedCNAE = '';
+
+        for (var i = 0; i < cnae.length; i++) {
+            formattedCNAE += cnae[i];
+        }
+
+        input.value = formattedCNAE;
+    }
+
+    function formatInscricoes(input) {
+        var inscricoes = input.value.replace(/\D/g, '');
+        var formattedInscricoes = '';
+
+        for (var i = 0; i < inscricoes.length; i++) {
+            formattedInscricoes += inscricoes[i];
+        }
+
+        input.value = formattedInscricoes;
+    }
+    function formatCPF(input) {
+        // Remove qualquer caractere não numérico do valor atual do campo
+        var cpf = input.value.replace(/\D/g, '');
+
+        // Formata o CNPJ com os caracteres '.' '/', e '-' conforme o usuário digita
+        var formattedCPF = '';
+            
+        for (var i = 0; i < cpf.length; i++) {
+            if (i === 3 || i === 6) {
+            formattedCPF += '.';
+            } else if (i === 9) {
+            formattedCPF += '-';
+            }
+            formattedCPF += cpf[i];
+        }
+
+        // Define o valor formatado de volta no campo
+        input.value = formattedCPF;
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        var adicionarSocioButton = document.getElementById('adicionar-socio');
+        var sociosExtrasContainer = document.querySelector('.socios-extras');
+        var removerSocioButton = document.getElementById('remover-socio');
+        var mainContent = document.querySelector('main');
+        var numeroSocios = 1;
+        var aumentoPorClique = 293; 
+        var alturaAtual = mainContent.offsetHeight;
+
+        function consultarCEP(numeroSocios) {
+            const cepInput = document.getElementById(`cepsocio${numeroSocios}`);
+            const ruaInput = document.getElementById(`ruasocio${numeroSocios}`);
+            const cidadeInput = document.getElementById(`cidadesocio${numeroSocios}`);
+            const estadoInput = document.getElementById(`estadosocio${numeroSocios}`);
+
+            const cep = cepInput.value.replace(/\D/g, '');
+
+            if (cep.length === 0) {
+                return;
+            }
+
+            if (cep.length !== 8) {
+                ruaInput.value = '';
+                cidadeInput.value = '';
+                estadoInput.value = '';
+                alert("CEP inválido.");
+                return;
+            }
+
+            const apiUrl = `https://viacep.com.br/ws/${cep}/json/`;
+
+            fetch(apiUrl)
+                .then(response => response.json())
+                .then(data => {
+                    if (!data.erro) {
+                        const ruaMaiusculas = data.logradouro.toUpperCase();
+                        const cidadeMaiusculas = data.localidade.toUpperCase();
+                        const estadoMaiusculas = data.uf.toUpperCase();
+
+                        ruaInput.value = ruaMaiusculas;
+                        cidadeInput.value = cidadeMaiusculas;
+                        estadoInput.value = estadoMaiusculas;
+                    } else {
+                        alert("CEP não encontrado!");
+                    }
+                })
+                .catch(error => {
+                    console.error("Erro ao consultar CEP:", error);
+                });
+        }
+
+        adicionarSocioButton.addEventListener('click', function() {
+            numeroSocios++;
+            var novoSocioHTML = `
+                <hr width="95%">
+                <br>
+                <div class="caixainput">
+                    <label class="labelsocio">Sócio ${numeroSocios}:</label>
+                    <div class="input-container">
+                        <input type="text" class="inputnomesocio" id="nomesocio" name="nomesocio" placeholder="Nome Sócio" oninput="keepCursorPosition(this)" required>
+                        <label class="input-titlenomesocio">Nome Sócio:</label>
+                    </div>
+                </div>
+                <br>
+                <div class="caixainput">
+                    <div class="input-container">
+                        <input type="text" class="inputcpfsocio" id="cpfsocio" name="cpfsocio" placeholder="CPF" oninput="formatCPF(this)" maxlength="14" required >
+                        <label class="input-titlecpfsocio">CPF:</label>
+                    </div>
+                    <div class="input-container">
+                        <input type="email" class="inputemail" id="emailsocio" name="emailsocio" placeholder="E-mail" required >
+                        <label class="input-titleemail">E-mail:</label>
+                    </div>
+                </div>
+                <br>
+                <div class="caixainput">
+                    <label class="labelenderecosocio">Endereço Sócio ${numeroSocios}:</label>
+                    <div class="input-container">
+                        <input type="text" class="inputcep" id="cepsocio${numeroSocios}" name="cep" placeholder="CEP" oninput="formatCEP(this)" maxlength="10" required>
+                        <label class="input-titlecep">CEP:</label>
+                    </div>
+                    <div class="input-container">
+                        <input type="text" class="inputruasocio" id="ruasocio${numeroSocios}" name="ruasocio" placeholder="Rua" oninput="keepCursorPosition(this)" required>
+                        <label class="input-titleruasocio">Rua:</label>
+                    </div>
+                    <div class="input-container">
+                        <input type="text" class="inputnumero" id="numerosocio${numeroSocios}" name="numero" placeholder="Número" required>
+                        <label class="input-titlenumero">Número:</label>
+                    </div>
+                </div>
+                <br>
+                <div class="caixainput">
+                    <div class="input-container">
+                        <input type="text" class="inputcidade" id="cidadesocio${numeroSocios}" name="cidade" placeholder="Cidade" oninput="keepCursorPosition(this)" required>
+                        <label class="input-titlecidade">Cidade:</label>
+                    </div>
+                    <div class="input-container">
+                        <input type="text" class="inputestado" id="estadosocio${numeroSocios}" name="estado" placeholder="Estado (sigla):" oninput="keepCursorPosition(this)" maxlength="2" required>
+                        <label class="input-titleestado">Estado (sigla):</label>
+                    </div>
+                </div>
+                <br>
+            `;
+
+            var novoSocio = document.createElement('div');
+            novoSocio.innerHTML = novoSocioHTML;
+            sociosExtrasContainer.appendChild(novoSocio);
+        
+            alturaAtual += aumentoPorClique;
+            
+            mainContent.style.height = alturaAtual + 'px';
+
+            var novoCampoCEP = document.getElementById(`cepsocio${numeroSocios}`);
+            novoCampoCEP.addEventListener("blur", function() {
+                consultarCEP(numeroSocios);
+            });
+
+            novoCampoCEP.addEventListener("input", function() {
+                if (this.value === '') {
+                    const numeroSocio = this.id.replace("cepsocio", "");
+                    document.getElementById(`ruasocio${numeroSocio}`).value = '';
+                    document.getElementById(`cidadesocio${numeroSocio}`).value = '';
+                    document.getElementById(`estadosocio${numeroSocio}`).value = '';
+                }
+            });
+        });
+
+        removerSocioButton.addEventListener('click', function() {
+            if (numeroSocios > 1) {
+                var ultimoSocio = sociosExtrasContainer.lastElementChild;
+                sociosExtrasContainer.removeChild(ultimoSocio);
+
+                numeroSocios--;
+                alturaAtual -= aumentoPorClique;
+                mainContent.style.height = alturaAtual + 'px';
+            } else {
+                alert("Não é possível remover o primeiro sócio!");
+            }
+        });
+    });
+
+    function consultarCEP(cepInput, ruaInput, cidadeInput, estadoInput) {
+    const cep = cepInput.value.replace(/\D/g, '');
+
+    if (cep.length === 0) {
+                return;
+            }
+
+    if (cep.length !== 8) {
+        ruaInput.value = '';
+        cidadeInput.value = '';
+        estadoInput.value = '';
+        alert("CEP inválido.");
+        return;
+    }
+
+    const apiUrl = `https://viacep.com.br/ws/${cep}/json/`;
+
+    fetch(apiUrl)
+        .then(response => response.json())
+        .then(data => {
+            if (!data.erro) {
+                const ruaMaiusculas = data.logradouro.toUpperCase();
+                const cidadeMaiusculas = data.localidade.toUpperCase();
+                const estadoMaiusculas = data.uf.toUpperCase();
+
+                ruaInput.value = ruaMaiusculas;
+                cidadeInput.value = cidadeMaiusculas;
+                estadoInput.value = estadoMaiusculas;
+            } else {
+                alert("CEP não encontrado.");
+            }
+        })
+        .catch(error => {
+            console.error("Erro ao consultar CEP:", error);
+        });
+    }
+
+    // Evento de blur para o campo de CEP
+    document.getElementById("cep").addEventListener("blur", function () {
+        consultarCEP(
+            this,
+            document.getElementById("rua"),
+            document.getElementById("cidade"),
+            document.getElementById("estado")
+        );
+    });
+    document.getElementById("cep").addEventListener("input", function() {
+        if (this.value === '') {
+            document.getElementById(`rua`).value = '';
+            document.getElementById(`cidade`).value = '';
+            document.getElementById(`estado`).value = '';
+        }
+    });
+
+    // Evento de blur para o campo de CEP do sócio 1
+    document.getElementById("cepsocio1").addEventListener("blur", function () {
+        consultarCEP(
+            this,
+            document.getElementById("ruasocio1"),
+            document.getElementById("cidadesocio1"),
+            document.getElementById("estadosocio1")
+        );
+    });
+    document.getElementById("cepsocio1").addEventListener("input", function() {
+        if (this.value === '') {
+            document.getElementById(`ruasocio1`).value = '';
+            document.getElementById(`cidadesocio1`).value = '';
+            document.getElementById(`estadosocio1`).value = '';
+        }
+    });
+</script>
+{% endblock %}

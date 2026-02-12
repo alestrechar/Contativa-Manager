@@ -1,0 +1,546 @@
+main{
+    width: 100%;
+    height: 145%;
+    background-color: whitesmoke;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+
+h2{
+    margin-top: 0;
+    text-align: center;
+    color: #3e4095;
+    font-weight: lighter;
+    font-size: 28px;
+}
+
+.container {
+    background-color: #fff;
+    width: 1000px;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    font-family: Montserrat, sans-serif;
+    display: inline-block;
+    justify-content: center;
+    
+}
+.caixabotao{
+    width: 28%;
+    background-color: transparent;
+    position: relative;
+    margin-left: 665px;
+}
+.caixaadicionarsocio{
+    width: 17%;
+    height: 45px;
+    background-color: transparent;
+    position: relative;
+    margin-left: 774px;
+}
+.caixaremoversocio{
+    width: 17%;
+    height: 45px;
+    background-color: transparent;
+    position: relative;
+    margin-left: 400px;
+    margin-top: -45px;
+}
+
+form {
+    margin-top: 30px;
+}
+
+.container-interno{
+    width: 100%;
+    background-color: transparent;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+    margin-top: 30px;
+}
+.caixainput{
+    display: flex;
+    width: 100%;
+    height: 45px;
+    background-color: transparent;
+}
+.labelendereco{
+    margin-left: 25px;
+    margin-right: 25px;
+    font-size: 15px;
+    background-color: transparent;
+    display: flex;
+    text-align: left;
+}
+.labelenderecosocio{
+    margin-left: 25px;
+    margin-right: 25px;
+    font-size: 15px;
+    background-color: transparent;
+    display: flex;
+    text-align: left;
+}
+.labelsocio{
+    margin-left: 0px;
+    margin-right: 0px;
+    font-size: 15px;
+    background-color: transparent;
+    width: 13%;
+}
+.labelsenha{
+    margin-left: 25px;
+    margin-right: 25px;
+    font-size: 15px;
+    background-color: transparent;
+    width: 13%;
+    display: flex;
+    text-align: left;
+}
+
+input{
+    height: 45px;
+    border: 1px solid #ccc; 
+    padding-left: 12px;
+    font-family: Montserrat, sans-serif;
+}
+input:hover {
+    border-color: rgb(0, 0, 197);
+}
+input[type="text"] {
+    width: 90%;
+    padding: 10px;
+    border-radius: 4px;
+    box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);
+}
+.inputrua[type="text"] {
+    width: 120%;
+    padding: 10px;
+    margin-left: 10px;
+    border-radius: 4px;
+    box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);
+}
+.inputnumero[type="text"] {
+    width: 55%;
+    padding: 10px;
+    margin-left: 78px;
+    border-radius: 4px;
+    box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);
+}
+.inputcidade[type="text"] {
+    width: 76%;
+    padding: 10px;
+    margin-left: 152px;
+    border-radius: 4px;
+    box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);
+}
+.inputestado[type="text"] {
+    width: 80%;
+    padding: 10px;
+    margin-left: 46px;
+    border-radius: 4px;
+    box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);
+}
+.inputcep[type="text"] {
+    width: 80%;
+    padding: 10px;
+    border-radius: 4px;
+    box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);
+}
+.inputcapital[type="text"] {
+    width: 85%;
+    padding: 10px;
+    border-radius: 4px;
+    box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);
+}
+.inputtributacao[type="text"] {
+    width: 85%;
+    padding: 10px;
+    border-radius: 4px;
+    box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);
+}
+.inputcnae[type="text"] {
+    width: 85%;
+    padding: 10px;
+    margin-left: -1px;
+    border-radius: 4px;
+    box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);
+}
+.inputnomesocio[type="text"] {
+    width: 93%;
+    padding: 10px;
+    margin-left: 9px;
+    border-radius: 4px;
+    box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);
+}
+.inputcpfsocio[type="text"] {
+    width: 77%;
+    padding: 10px;
+    margin-left: 151px;
+    border-radius: 4px;
+    box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);
+}
+.inputruasocio[type="text"] {
+    width: 120%;
+    padding: 10px;
+    margin-left: 10.1px;
+    border-radius: 4px;
+    box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);
+}
+.inputemail[type="email"] {
+    width: 79%;
+    padding: 10px;
+    margin-left: 52px;
+    border-radius: 4px;
+    box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);
+}
+.inputsenha[type="password"] {
+    width: 87%;
+    padding: 10px;
+    margin-left: 8px;
+    border-radius: 4px;
+    box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);
+}
+.inputrepetirsenha[type="password"] {
+    width: 90%;
+    padding: 10px;
+    margin-left: -10px;
+    border-radius: 4px;
+    box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);
+}
+
+.input-container {
+    position: relative;
+    width: 100%;
+}
+
+.input-titleesquerda {
+    position: absolute;
+    top: 5px; /* Ajuste a distância do título ao input conforme necessário */
+    left: 30px; /* Ajuste a posição do título conforme necessário */
+    background-color: #fff; /* Cor do fundo do título (para cobrir o texto do input) */
+    padding: 0 6px; /* Espaçamento interno do título */
+    pointer-events: none; /* Impede que o título seja clicável */
+    transition: top 0.2s ease, font-size 0.2s ease; /* Animação suave */
+    opacity: 0;
+}
+.input-titledireita {
+    position: absolute;
+    top: 5px; /* Ajuste a distância do título ao input conforme necessário */
+    left: 30px; /* Ajuste a posição do título conforme necessário */
+    background-color: #fff; /* Cor do fundo do título (para cobrir o texto do input) */
+    padding: 0 6px; /* Espaçamento interno do título */
+    pointer-events: none; /* Impede que o título seja clicável */
+    transition: top 0.2s ease, font-size 0.2s ease; /* Animação suave */
+    opacity: 0;
+}
+.input-titlerua {
+    position: absolute;
+    top: 5px; /* Ajuste a distância do título ao input conforme necessário */
+    left: 15px; /* Ajuste a posição do título conforme necessário */
+    background-color: #fff; /* Cor do fundo do título (para cobrir o texto do input) */
+    padding: 0 6px; /* Espaçamento interno do título */
+    pointer-events: none; /* Impede que o título seja clicável */
+    transition: top 0.2s ease, font-size 0.2s ease; /* Animação suave */
+    opacity: 0;
+}
+.input-titlenumero {
+    position: absolute;
+    top: 5px; /* Ajuste a distância do título ao input conforme necessário */
+    left: 110px; /* Ajuste a posição do título conforme necessário */
+    background-color: #fff; /* Cor do fundo do título (para cobrir o texto do input) */
+    padding: 0 6px; /* Espaçamento interno do título */
+    pointer-events: none; /* Impede que o título seja clicável */
+    transition: top 0.2s ease, font-size 0.2s ease; /* Animação suave */
+    opacity: 0;
+}
+.input-titlecidade {
+    position: absolute;
+    top: 5px; /* Ajuste a distância do título ao input conforme necessário */
+    left: 157px; /* Ajuste a posição do título conforme necessário */
+    background-color: #fff; /* Cor do fundo do título (para cobrir o texto do input) */
+    padding: 0 6px; /* Espaçamento interno do título */
+    pointer-events: none; /* Impede que o título seja clicável */
+    transition: top 0.2s ease, font-size 0.2s ease; /* Animação suave */
+    opacity: 0;
+}
+.input-titlecep {
+    position: absolute;
+    top: 5px; /* Ajuste a distância do título ao input conforme necessário */
+    left: 34px; /* Ajuste a posição do título conforme necessário */
+    background-color: #fff; /* Cor do fundo do título (para cobrir o texto do input) */
+    padding: 0 6px; /* Espaçamento interno do título */
+    pointer-events: none; /* Impede que o título seja clicável */
+    transition: top 0.2s ease, font-size 0.2s ease; /* Animação suave */
+    opacity: 0;
+}
+.input-titleestado {
+    position: absolute;
+    top: 5px; /* Ajuste a distância do título ao input conforme necessário */
+    left: 77px; /* Ajuste a posição do título conforme necessário */
+    background-color: #fff; /* Cor do fundo do título (para cobrir o texto do input) */
+    padding: 0 6px; /* Espaçamento interno do título */
+    pointer-events: none; /* Impede que o título seja clicável */
+    transition: top 0.2s ease, font-size 0.2s ease; /* Animação suave */
+    opacity: 0;
+}
+.input-titlecapital {
+    position: absolute;
+    top: 5px; /* Ajuste a distância do título ao input conforme necessário */
+    left: 30px; /* Ajuste a posição do título conforme necessário */
+    background-color: #fff; /* Cor do fundo do título (para cobrir o texto do input) */
+    padding: 0 6px; /* Espaçamento interno do título */
+    pointer-events: none; /* Impede que o título seja clicável */
+    transition: top 0.2s ease, font-size 0.2s ease; /* Animação suave */
+    opacity: 0;
+}
+.input-titletributacao {
+    position: absolute;
+    top: 5px; /* Ajuste a distância do título ao input conforme necessário */
+    left: 30px; /* Ajuste a posição do título conforme necessário */
+    background-color: #fff; /* Cor do fundo do título (para cobrir o texto do input) */
+    padding: 0 6px; /* Espaçamento interno do título */
+    pointer-events: none; /* Impede que o título seja clicável */
+    transition: top 0.2s ease, font-size 0.2s ease; /* Animação suave */
+    opacity: 0;
+}
+.input-titlecnae {
+    position: absolute;
+    top: 5px; /* Ajuste a distância do título ao input conforme necessário */
+    left: 28px; /* Ajuste a posição do título conforme necessário */
+    background-color: #fff; /* Cor do fundo do título (para cobrir o texto do input) */
+    padding: 0 6px; /* Espaçamento interno do título */
+    pointer-events: none; /* Impede que o título seja clicável */
+    transition: top 0.2s ease, font-size 0.2s ease; /* Animação suave */
+    opacity: 0;
+}
+.input-titlenomesocio {
+    position: absolute;
+    top: 5px; /* Ajuste a distância do título ao input conforme necessário */
+    left: 41px; /* Ajuste a posição do título conforme necessário */
+    background-color: #fff; /* Cor do fundo do título (para cobrir o texto do input) */
+    padding: 0 6px; /* Espaçamento interno do título */
+    pointer-events: none; /* Impede que o título seja clicável */
+    transition: top 0.2s ease, font-size 0.2s ease; /* Animação suave */
+    opacity: 0;
+}
+.input-titlecpfsocio {
+    position: absolute;
+    top: 5px; /* Ajuste a distância do título ao input conforme necessário */
+    left: 156px; /* Ajuste a posição do título conforme necessário */
+    background-color: #fff; /* Cor do fundo do título (para cobrir o texto do input) */
+    padding: 0 6px; /* Espaçamento interno do título */
+    pointer-events: none; /* Impede que o título seja clicável */
+    transition: top 0.2s ease, font-size 0.2s ease; /* Animação suave */
+    opacity: 0;
+}
+.input-titleruasocio {
+    position: absolute;
+    top: 5px; /* Ajuste a distância do título ao input conforme necessário */
+    left: 15px; /* Ajuste a posição do título conforme necessário */
+    background-color: #fff; /* Cor do fundo do título (para cobrir o texto do input) */
+    padding: 0 6px; /* Espaçamento interno do título */
+    pointer-events: none; /* Impede que o título seja clicável */
+    transition: top 0.2s ease, font-size 0.2s ease; /* Animação suave */
+    opacity: 0;
+}
+.input-titleemail {
+    position: absolute;
+    top: 5px; /* Ajuste a distância do título ao input conforme necessário */
+    left: 84px; /* Ajuste a posição do título conforme necessário */
+    background-color: #fff; /* Cor do fundo do título (para cobrir o texto do input) */
+    padding: 0 6px; /* Espaçamento interno do título */
+    pointer-events: none; /* Impede que o título seja clicável */
+    transition: top 0.2s ease, font-size 0.2s ease; /* Animação suave */
+    opacity: 0;
+}
+.input-titlesenha {
+    position: absolute;
+    top: 5px; /* Ajuste a distância do título ao input conforme necessário */
+    left: 38px; /* Ajuste a posição do título conforme necessário */
+    background-color: #fff; /* Cor do fundo do título (para cobrir o texto do input) */
+    padding: 0 6px; /* Espaçamento interno do título */
+    pointer-events: none; /* Impede que o título seja clicável */
+    transition: top 0.2s ease, font-size 0.2s ease; /* Animação suave */
+    opacity: 0;
+}
+.input-titlerepetirsenha {
+    position: absolute;
+    top: 5px; /* Ajuste a distância do título ao input conforme necessário */
+    left: 22px; /* Ajuste a posição do título conforme necessário */
+    background-color: #fff; /* Cor do fundo do título (para cobrir o texto do input) */
+    padding: 0 6px; /* Espaçamento interno do título */
+    pointer-events: none; /* Impede que o título seja clicável */
+    transition: top 0.2s ease, font-size 0.2s ease; /* Animação suave */
+    opacity: 0;
+}
+
+input:focus + .input-titleesquerda,
+input:not(:placeholder-shown) + .input-titleesquerda {
+    top: -10px; /* Ajuste a posição vertical do título quando o input está em foco */
+    font-size: 14px; /* Ajuste o tamanho da fonte do título quando o input está em foco */
+    opacity: 1;
+}
+input:focus + .input-titledireita,
+input:not(:placeholder-shown) + .input-titledireita {
+    top: -10px; /* Ajuste a posição vertical do título quando o input está em foco */
+    font-size: 14px; /* Ajuste o tamanho da fonte do título quando o input está em foco */
+    opacity: 1;
+}
+input:focus + .input-titlerua,
+input:not(:placeholder-shown) + .input-titlerua {
+    top: -10px; /* Ajuste a posição vertical do título quando o input está em foco */
+    font-size: 14px; /* Ajuste o tamanho da fonte do título quando o input está em foco */
+    opacity: 1;
+}
+input:focus + .input-titlenumero,
+input:not(:placeholder-shown) + .input-titlenumero {
+    top: -10px; /* Ajuste a posição vertical do título quando o input está em foco */
+    font-size: 14px; /* Ajuste o tamanho da fonte do título quando o input está em foco */
+    opacity: 1;
+}
+input:focus + .input-titlecidade,
+input:not(:placeholder-shown) + .input-titlecidade {
+    top: -10px; /* Ajuste a posição vertical do título quando o input está em foco */
+    font-size: 14px; /* Ajuste o tamanho da fonte do título quando o input está em foco */
+    opacity: 1;
+}
+input:focus + .input-titlecep,
+input:not(:placeholder-shown) + .input-titlecep {
+    top: -10px; /* Ajuste a posição vertical do título quando o input está em foco */
+    font-size: 14px; /* Ajuste o tamanho da fonte do título quando o input está em foco */
+    opacity: 1;
+}
+input:focus + .input-titleestado,
+input:not(:placeholder-shown) + .input-titleestado {
+    top: -10px; /* Ajuste a posição vertical do título quando o input está em foco */
+    font-size: 14px; /* Ajuste o tamanho da fonte do título quando o input está em foco */
+    opacity: 1;
+}
+input:focus + .input-titlecapital,
+input:not(:placeholder-shown) + .input-titlecapital {
+    top: -10px; /* Ajuste a posição vertical do título quando o input está em foco */
+    font-size: 14px; /* Ajuste o tamanho da fonte do título quando o input está em foco */
+    opacity: 1;
+}
+input:focus + .input-titletributacao,
+input:not(:placeholder-shown) + .input-titletributacao {
+    top: -10px; /* Ajuste a posição vertical do título quando o input está em foco */
+    font-size: 14px; /* Ajuste o tamanho da fonte do título quando o input está em foco */
+    opacity: 1;
+}
+input:focus + .input-titlecnae,
+input:not(:placeholder-shown) + .input-titlecnae {
+    top: -10px; /* Ajuste a posição vertical do título quando o input está em foco */
+    font-size: 14px; /* Ajuste o tamanho da fonte do título quando o input está em foco */
+    opacity: 1;
+}
+input:focus + .input-titlenomesocio,
+input:not(:placeholder-shown) + .input-titlenomesocio {
+    top: -10px; /* Ajuste a posição vertical do título quando o input está em foco */
+    font-size: 14px; /* Ajuste o tamanho da fonte do título quando o input está em foco */
+    opacity: 1;
+}
+input:focus + .input-titlecpfsocio,
+input:not(:placeholder-shown) + .input-titlecpfsocio {
+    top: -10px; /* Ajuste a posição vertical do título quando o input está em foco */
+    font-size: 14px; /* Ajuste o tamanho da fonte do título quando o input está em foco */
+    opacity: 1;
+}
+input:focus + .input-titleruasocio,
+input:not(:placeholder-shown) + .input-titleruasocio {
+    top: -10px; /* Ajuste a posição vertical do título quando o input está em foco */
+    font-size: 14px; /* Ajuste o tamanho da fonte do título quando o input está em foco */
+    opacity: 1;
+}
+input:focus + .input-titleemail,
+input:not(:placeholder-shown) + .input-titleemail {
+    top: -10px; /* Ajuste a posição vertical do título quando o input está em foco */
+    font-size: 14px; /* Ajuste o tamanho da fonte do título quando o input está em foco */
+    opacity: 1;
+}
+input:focus + .input-titlesenha,
+input:not(:placeholder-shown) + .input-titlesenha {
+    top: -10px; /* Ajuste a posição vertical do título quando o input está em foco */
+    font-size: 14px; /* Ajuste o tamanho da fonte do título quando o input está em foco */
+    opacity: 1;
+}
+input:focus + .input-titlerepetirsenha,
+input:not(:placeholder-shown) + .input-titlerepetirsenha {
+    top: -10px; /* Ajuste a posição vertical do título quando o input está em foco */
+    font-size: 14px; /* Ajuste o tamanho da fonte do título quando o input está em foco */
+    opacity: 1;
+}
+
+input[placeholder]::placeholder{
+    font-size: 14px;
+}
+input:focus {
+    outline-color:  rgb(0, 0, 197); 
+}
+input:focus::placeholder {    
+    color: transparent;
+}
+
+.buttoncadastrar[type="submit"] {
+    background-color: #3e4095;
+    color: white;
+    width: 100%;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-family: Montserrat, sans-serif;
+    border-radius: 4px;
+    transition: transform 0.3s;
+    font-size: 15.5px;
+}
+.buttoncadastrar[type="submit"]:hover{
+    background-color: white;
+    transform: scale(0.90);
+    color: #3e4095;
+    border: 1px solid #3e4095;
+}
+
+.buttonadicionarsocio[type="button"]{
+    background-color: #3e4095;
+    color: white;
+    width: 100%;
+    height: 100%;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-family: Montserrat, sans-serif;
+    border-radius: 4px;
+    transition: transform 0.3s;
+    font-size: 15.5px;
+}
+.buttonadicionarsocio[type="button"]:hover{
+    background-color: white;
+    transform: scale(0.90);
+    color: #3e4095;
+    border: 1px solid #3e4095;
+} 
+
+.buttonremoversocio[type="button"]{
+    background-color: #3e4095;
+    color: white;
+    width: 100%;
+    height: 100%;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-family: Montserrat, sans-serif;
+    border-radius: 4px;
+    transition: transform 0.3s;
+    font-size: 15.5px;
+    
+}
+.buttonremoversocio[type="button"]:hover{
+    background-color: white;
+    transform: scale(0.90);
+    color: #3e4095;
+    border: 1px solid #3e4095;
+} 
+
+#cadastrar{
+    height: 45px;
+}

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Usuário</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+    <div class="min-h-screen flex items-center justify-center">
+        <div class="max-w-md w-full space-y-8 p-8 bg-white rounded-lg shadow">
+            <div>
+                <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">
+                    Editar Usuário
+                </h2>
+            </div>
+            <form class="mt-8 space-y-6" action="{{ url_for('routes.editar_usuario', id=usuario.id) }}" method="POST">
+                <div class="rounded-md shadow-sm -space-y-px">
+                    <div class="mb-4">
+                        <label for="nomeusr" class="block text-sm font-medium text-gray-700">Nome do Usuário</label>
+                        <input id="nomeusr" name="nomeusr" type="text" required class="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" value="{{ usuario.nomeusr }}">
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label for="nomeemp" class="block text-sm font-medium text-gray-700">Nome da Empresa</label>
+                        <input id="nomeemp" name="nomeemp" type="text" required class="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" value="{{ usuario.nomeemp }}">
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label for="cnpj" class="block text-sm font-medium text-gray-700">CNPJ</label>
+                        <input id="cnpj" name="cnpj" type="text" required class="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" value="{{ usuario.cnpj }}">
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label for="emailusr" class="block text-sm font-medium text-gray-700">Email</label>
+                        <input id="emailusr" name="emailusr" type="email" required class="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" value="{{ usuario.emailusr }}">
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label for="senha" class="block text-sm font-medium text-gray-700">Senha</label>
+                        <input id="senha" name="senha" type="password" required class="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" value="{{ usuario.senha }}">
+                    </div>
+                </div>
+
+                <div class="flex items-center justify-between">
+                    <button type="submit" class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                        Salvar Alterações
+                    </button>
+                </div>
+            </form>
+            
+            <div class="mt-4">
+                <a href="{{ url_for('routes.admindex') }}" class="w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-indigo-600 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                    Voltar
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

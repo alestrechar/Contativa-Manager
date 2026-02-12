@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %}Contativa Contabilidade{% endblock %}
+
+{% block main_styles %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/codigo_senha.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <br>
+    <h2>Redefinir Senha</h2>
+    <center>
+        <form action="" method="get">
+            <div class="caixatexto1">
+                Informe o código recebido no campo abaixo e logo em seguida redefina sua senha. 
+            </div>
+            <br>
+            <hr width="100%">
+            <br>
+            <div class="input-container">
+                <input type="text" id="codigo" name="codigo" placeholder="Código" required>
+                <label class="input-title">Código:</label>
+            </div>
+            <div class="input-container">
+                <input type="password" id="redefinir_senha" name="redefinir_senha" placeholder="Redefinir senha" required>
+                <label class="input-title">Redefinir senha:</label>
+            </div>
+            <div class="caixabotao">
+                <button type="submit" id="redefinir" class="buttonredefinir">Redefinir</button>
+            </div>
+        </form>
+        <br>
+    </center>
+</div>
+{% endblock %}

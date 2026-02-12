@@ -1,0 +1,158 @@
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Título Padrão{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/base.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/logoccbranca.ico') }}">
+</head>
+<body>
+    <header>
+        <div class="caixalogoheader">
+            <img class="imagem-responsiva" src="../static/images/logoempresa.png">
+        </div>
+        {% if mostrar_navbar %}
+        <nav>
+            <center>
+                <a href="{{ url_for('routes.inicio') }}"><button class="buttonnavinicio">INÍCIO</button></a>
+                <a href="{{ url_for('routes.cadastro_empresa_cliente') }}"><button class="buttonnav">CADASTRO EMPRESAS</button></a>
+                <a href="{{ url_for('routes.empresas') }}"><button class="buttonnavempresas">EMPRESAS<span class="arrow"></span></button></a>
+                <a href="{{ url_for('routes.documentos') }}"><button class="buttonnavdocs">DOCUMENTOS<span class="arrow"></span></button></a>
+                <a href="{{ url_for('routes.relatorios') }}"><button class="buttonnavrelatorios">RELATÓRIOS</button></a>
+            </center> 
+        </nav>
+        {% endif %}
+        {% if mostrar_botao_sair %}
+            <div class="caixabotaosair">
+                <a href="{{ url_for('routes.logout') }}"><button class="buttonsair">SAIR</button></a>
+            </div> 
+        {% endif %}
+    </header>
+    <main>
+        {% block main_styles %}{% endblock %}
+        {% block content %}{% endblock %}
+    </main>
+    <footer>
+        <div class="caixaprivacidade">
+            <button id="abrirPopupPrivacidade" class="buttonprivacidade">Politicas de Privacidade</button>
+
+            <div id="overlayPrivacidade" class="overlay"></div>
+
+            <!-- Conteúdo do popup -->
+            <div id="meuPopupPrivacidade" class="popupprivacidade">
+                <span class="fechar" id="fecharPopupPrivacidade">&times;</span>
+                <h2 class="h2privacidade">Políticas de Privacidade</h2>
+                    - Coletamos informações pessoais apenas quando você as fornece voluntariamente, e utilizamos essas informações para responder às suas solicitações e melhorar sua experiência no site.
+					<br><br>
+					- Não compartilhamos suas informações com terceiros, exceto quando necessário para atender às suas solicitações ou cumprir obrigações legais.
+					<br><br>
+					- Tomamos medidas para proteger suas informações, mas lembre-se de que nenhum método de transmissão pela internet é 100% seguro.
+					<br><br>
+					- Utilizamos cookies para melhorar a sua navegação, mas você pode configurar seu navegador para recusá-los. Nosso site pode conter links para sites de terceiros, e não nos responsabilizamos por suas políticas de privacidade.
+					<br><br>
+					- Esta política pode ser atualizada periodicamente.
+                </ul>
+            </div>
+        </div>
+        <div class="caixacontato">
+            <button id="abrirPopupContato" class="buttoncontato">Contato</button>
+
+            <div id="overlayContato" class="overlay"></div>
+
+            <!-- Conteúdo do popup -->
+            <div id="meuPopupContato" class="popupcontato">
+                <span class="fechar" id="fecharPopupContato">&times;</span>
+                <h2 class="h2contato">Contato</h2>
+                
+                <table>
+                    <tr>
+                        <td class="coluna-logo">
+                            <div class="logogmail">
+                                <img src="../static/images/logogmail.png" class="imagem-responsiva-contato">
+                            </div>
+                        </td>
+                        <td class="coluna-conteudo">
+                            <div class="caixagmail">
+                                <a href="mailto:alestrechar@gmail.com" target="_blank">alestrechar@gmail.com</a>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="coluna-logo">
+                            <div class="logowhats">
+                                <img src="../static/images/logowhats.png" class="imagem-responsiva-contato">
+                            </div>
+                        </td>
+                        <td class="coluna-conteudo">
+                            <div class="caixawhats">
+                                <a href="https://wa.me/41995078911" target="_blank">(41) 99507-8911</a>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="coluna-logo">
+                            <div class="logoinsta">
+                                <img src="../static/images/logoinsta.png" class="imagem-responsiva-contato">
+                            </div>
+                        </td>
+                        <td class="coluna-conteudo">
+                            <div class="caixainsta">
+                                <a href="https://www.instagram.com/alestrechar/" target="_blank">@alestrechar</a>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="coluna-logo">
+                            <div class="logotelefone">
+                                <img src="../static/images/logotelefone.png" class="imagem-responsiva-contato">
+                            </div>
+                        </td>
+                        <td class="coluna-conteudo">
+                            <div class="caixatelefone">
+                                (41) 3077-6388
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="caixadireitos">
+            &copy; 2024 Pedro Macedo. Todos os direitos reservados.
+        </div>
+    </footer>
+    <script>
+        var abrirPopupPrivacidade = document.getElementById("abrirPopupPrivacidade");
+        var overlayPrivacidade = document.getElementById("overlayPrivacidade");
+        var meuPopupPrivacidade = document.getElementById("meuPopupPrivacidade");
+        var fecharPopupPrivacidade = document.getElementById("fecharPopupPrivacidade");
+
+        // Função para abrir o popup
+        abrirPopupPrivacidade.addEventListener("click", function() {
+            overlayPrivacidade.style.display = "block";
+            meuPopupPrivacidade.style.display = "block";
+        });
+        // Função para fechar o popup
+        fecharPopupPrivacidade.addEventListener("click", function() {
+            overlayPrivacidade.style.display = "none";
+            meuPopupPrivacidade.style.display = "none";
+        });
+
+        var abrirPopupContato = document.getElementById("abrirPopupContato");
+        var overlayContato = document.getElementById("overlayContato");
+        var meuPopupContato = document.getElementById("meuPopupContato");
+        var fecharPopupContato = document.getElementById("fecharPopupContato");
+
+        // Função para abrir o popup
+        abrirPopupContato.addEventListener("click", function() {
+            overlayContato.style.display = "block";
+            meuPopupContato.style.display = "block";
+        });
+        // Função para fechar o popup
+        fecharPopupContato.addEventListener("click", function() {
+            overlayContato.style.display = "none";
+            meuPopupContato.style.display = "none";
+        });
+        
+    </script>
+</body>
+</html>

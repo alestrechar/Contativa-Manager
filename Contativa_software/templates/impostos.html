@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block title %}Contativa Contabilidade{% endblock %}
+
+{% block main_styles %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/impostos.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <button id="documentox" class="documento-button">
+        <hr>
+        <div class="documento-title">
+            <h2>Imposto X</h2>
+        </div>
+    </button>
+    <div id="conteudox" class="conteudo-documentos">
+        <font color="white">Este é o conteúdo do Documento X.</font>
+        <br><br>
+        <form method="post">
+            <input type="file" name="file">
+            <button type="submit">Salvar</button>
+        </form>
+    </div>
+    <br>
+    <button id="documentoz" class="documento-button">
+        <hr>
+        <div class="documento-title">
+            <h2>Imposto Z</h2>
+        </div>
+    </button>
+    <div id="conteudoz" class="conteudo-documentos">
+        <font color="white">Este é o conteúdo do Documento Z.</font>
+        <br><br>
+        <form method="post">
+            <input type="file" name="file">
+            <button type="submit">Salvar</button>
+        </form>
+    </div>
+    <br><br>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+    const documentox = document.getElementById('documentox');
+    const conteudox = document.getElementById('conteudox');
+
+    documentox.addEventListener('click', function() {
+        conteudox.classList.toggle('hidden');
+    });
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+    const documentoz = document.getElementById('documentoz');
+    const conteudoz = document.getElementById('conteudoz');
+
+    documentoz.addEventListener('click', function() {
+        conteudoz.classList.toggle('hidden');
+    });
+    });
+
+</script>
+{% endblock %}

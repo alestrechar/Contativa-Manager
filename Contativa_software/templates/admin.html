@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <title>Login - Contativa</title>
+</head>
+<body class="bg-gray-100">
+    <div class="min-h-screen flex items-center justify-center">
+        <div class="bg-white p-8 rounded-lg shadow-md w-96">
+            <div class="flex items-center justify-center mb-6">
+                <img src="../static/images/logoccazul.png" 
+                     alt="Logo Contativa" 
+                     class="h-24 w-24 mr-4">
+            </div>
+            
+            <form method="POST" class="space-y-4">
+                <div class="flex items-center">
+                    <label for="username" class="w-20 text-gray-700">Usuário:</label>
+                    <input type="text" name="user" required class="flex-1 ml-2 px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+
+                <div class="flex items-center">
+                    <label for="password" class="w-20 text-gray-700">Senha:</label>
+                    <input type="password"
+                           name="senha" 
+                           required
+                           class="flex-1 ml-2 px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+
+                <div class="mt-6">
+                    <button type="submit" 
+                            class="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition duration-300">
+                        Entrar
+                    </button>
+                </div>
+            </form>
+
+            {% if mensagem %}
+            <div class="mt-4 p-3 text-sm text-red-600">
+                {{ mensagem }}
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>

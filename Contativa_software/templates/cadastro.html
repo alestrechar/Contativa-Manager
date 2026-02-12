@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+
+{% block title %}Contativa Contabilidade{% endblock %}
+
+{% block main_styles %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/cadastro.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <br>
+    <h2>Cadastro</h2>
+    <center>
+        <form method="POST">
+            <div class="input-container">
+                <input type="text" class="inputnomeusuario" id="nome_usuario" name="nomeusr" placeholder="Nome do usuário" oninput="keepCursorPosition(this)" required>
+                <label class="input-title">Nome do usuário:</label>
+            </div>
+            <div class="input-container">
+                <input type="text" class="inputnomeempresa" id="nome_empresa" name="nomeemp" placeholder="Nome da empresa" oninput="keepCursorPosition(this)" required>
+                <label class="input-title">Nome da empresa:</label>
+            </div>
+            <div class="input-container">
+                <input type="text" class="inputcnpj" id="cnpj" name="cnpj" oninput="formatCNPJ(this)" maxlength="18" placeholder="CNPJ" required>
+                <label class="input-title">CNPJ:</label>
+            </div>
+            <div class="input-container">
+                <input type="email" id="e-mail" name="emailusr" placeholder="E-mail" required>
+                <label class="input-title">E-mail:</label>
+            </div>
+            <div class="input-container">
+                <input type="password" id="senha" name="senha" placeholder="Senha" required>
+                <label class="input-title">Senha:</label>                    
+            </div>
+            <div class="input-container">
+                <input type="password" id="senha" name="senhausr" placeholder="Confirmar senha" required>
+                <label class="input-title">Confirmar senha:</label>
+            </div>
+            <div class="caixabotao">
+                <button type="submit" id="entrar" class="buttonentrar">Cadastrar</button>
+            </div>
+            <div class="caixatexto1">
+                <a href="{{ url_for('routes.login') }}">Voltar a tela de login.</a>
+            </div>
+        </form>
+        <br>
+    </center>
+</div>
+<script>
+    function keepCursorPosition(input) {
+        cursorPosition = input.selectionStart;
+        const uppercaseValue = input.value.toUpperCase();
+        input.value = uppercaseValue;
+        
+        if (cursorPosition < uppercaseValue.length) {
+            input.setSelectionRange(cursorPosition, cursorPosition);
+        } else {
+            input.setSelectionRange(uppercaseValue.length, uppercaseValue.length);
+        }
+    }
+    
+    function formatCNPJ(input) {
+            // Remove qualquer caractere não numérico do valor atual do campo
+            var cnpj = input.value.replace(/\D/g, '');
+
+            // Formata o CNPJ com os caracteres '.' '/', e '-' conforme o usuário digita
+            var formattedCNPJ = '';
+            
+            for (var i = 0; i < cnpj.length; i++) {
+                if (i === 2 || i === 5) {
+                formattedCNPJ += '.';
+                } else if (i === 8) {
+                formattedCNPJ += '/';
+                } else if (i === 12) {
+                formattedCNPJ += '-';
+                }
+                formattedCNPJ += cnpj[i];
+            }
+
+            // Define o valor formatado de volta no campo
+            input.value = formattedCNPJ;
+        }
+</script>
+{% endblock %}

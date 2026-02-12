@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block title %}Contativa Contabilidade{% endblock %}
+
+{% block main_styles %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/relatorios.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-12">
+            <h2 class="mb-4">Relatórios e Estatísticas</h2>
+        </div>
+    </div>
+    
+    <div class="row">
+        <!-- Card Usuários -->
+        <div class="col-md-3 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Usuários:</h5>
+                    <h2 class="card-text">{{ estatisticas.total_usuarios }}</h2>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Card Empresas -->
+        <div class="col-md-3 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Empresas:</h5>
+                    <h2 class="card-text">{{ estatisticas.total_empresas }}</h2>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Card Documentos -->
+        <div class="col-md-3 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Documentos:</h5>
+                    <h2 class="card-text">{{ estatisticas.total_documentos }}</h2>
+                </div>
+            </div>
+        </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

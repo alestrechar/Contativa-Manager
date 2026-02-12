@@ -1,0 +1,354 @@
+main{
+    width: 100%;
+    min-height: 135vh;
+    height: auto;
+    background-color: whitesmoke; /* Centraliza horizontalmente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: Montserrat, sans-serif;
+}
+
+.container1 {
+    text-align: center;
+    background-color: #fff;
+    width: 48%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    min-height: 35vh; /* Garante no mínimo a altura da viewport */
+    padding: 20px;
+    height: auto;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.documento-button {
+    background-color: transparent;
+    border: none;
+    margin-top: 45px;
+    width: 100%;
+    height: 5%;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    padding-top: 13px;
+    font-weight: lighter;
+}
+
+.conteudo-documentos{
+    width: 97%; 
+    height: 35%;
+    background-color: #ccc; 
+    padding-top: 15px;
+    padding-bottom: 15px;
+    
+}
+
+.documento-title {
+    position: relative;
+    top: -24px;
+    left: 40px;
+    background-color: whitesmoke;
+    width: 19.5%;
+    height: 100%;
+    font-family: Montserrat, sans-serif;
+}
+
+.hidden {
+    display: none;
+}
+
+hr {
+    width: 100%;
+    height: 45px;
+}
+
+h2{
+    margin-top: 0;
+    text-align: center;
+    color: #3e4095;
+    font-weight: lighter;
+    font-size: 28px;
+}
+
+h1{
+    margin-top: 0;
+    text-align: center;
+    color: #3e4095;
+    font-weight: lighter;
+    font-size: 32px;
+}
+
+form {
+    background-color: transparent;
+    width:90%;
+}
+
+.container-2 {
+    width: 100%;
+    background-color: transparent; 
+}
+
+.empresa {
+    width: 100%;
+    background-color: transparent;
+    display: flex;
+    height: 100%;
+}
+
+.tipo{
+    width: 100%;
+    background-color: transparent;
+    display: flex;
+    height: 20%;
+}
+
+.arquivo{
+    width: 100%;
+    background-color: transparent;
+    height: 40%;
+    text-align: left;
+}
+
+.option-empresa{
+    width: 50%;
+    font-size: 13px;
+    margin-left: 8%;
+    font-family: Montserrat, sans-serif;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.option-tipo{
+    width: 48%;
+    font-size: 13px;
+    margin-left: 18%;
+    font-family: Montserrat, sans-serif;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+select:focus{
+    outline-color:  rgb(0, 0, 197); 
+}
+
+
+
+
+.arquivo-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espaço entre botão e nome do arquivo */
+    width: 100%;
+}
+
+/* Label estilizado como botão */
+.arquivo-label {
+    display: inline-block;
+    background-color: #3e4095;
+    color: white;
+    padding: 10px 20px;
+    width: 40%;
+    border-radius: 5px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    font-size: 13px;
+    text-align: center;
+    transition: background-color 0.3s ease;
+    transition: transform 0.3s ;
+}
+
+/* Efeito hover */
+
+
+/* Input escondido */
+.arquivo-input {
+    display: none;
+}
+
+/* Nome do arquivo */
+.arquivo-nome {
+    font-size: 12px;
+    color: #555;
+    flex-grow: 1; /* Faz o texto ocupar o espaço restante */
+    white-space: nowrap; /* Evita quebra de linha */
+    overflow: hidden; /* Esconde texto longo */
+    text-overflow: ellipsis; /* Adiciona "..." para texto longo */
+}
+
+.mensagem {
+    color: green;
+}
+
+.caixabotaoenviar {
+    background-color: transparent;
+    width: 25%;
+    height: 30%;
+    margin-left: 37%;
+}
+.enviar {
+    display: inline-block;
+    background-color: #3e4095;
+    color: white;
+    padding: 10px 20px;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    font-size: 15px;
+    font-family: Montserrat, sans-serif;
+    text-align: center;
+    transition: background-color 0.3s ease;
+    transition: transform 0.3s ;
+}
+
+.enviar:hover{
+    background-color: white;
+    transform: scale(0.93);
+    color: #3e4095;
+    border: 1px solid #3e4095;
+}
+
+.formatos {
+    font-size: 16px;
+}
+
+/* Estiliza a tabela */
+.form-table {
+    table-layout: fixed; /* Garante que as colunas tenham larguras fixas */
+    width: 100%; /* A tabela ocupa 100% da largura do contêiner */
+    margin-left: 0%;
+}
+
+/* Estiliza as células da tabela */
+.form-table td {
+    padding: 10px; /* Espaçamento interno */
+    vertical-align: top; /* Alinha o conteúdo ao topo */
+}
+
+/* Estiliza as colunas específicas */
+.form-column {
+    width: 50%; /* Cada coluna ocupa 50% da largura da tabela */
+    box-sizing: border-box; /* Inclui o padding e border na largura */
+}
+
+/* Estiliza os selects */
+.form-column select {
+    width: 100%; /* Faz o select ocupar toda a largura da célula */
+    padding: 8px; /* Adiciona espaçamento interno */
+    border: 1px solid #ccc; /* Borda padrão */
+    border-radius: 4px; /* Bordas arredondadas */
+    font-size: 13px; /* Tamanho da fonte */
+}
+
+/* Estiliza o input file */
+.form-column .arquivo-wrapper {
+    display: flex; /* Alinha o botão e o texto lado a lado */
+    align-items: center;
+    gap: 10px; /* Espaço entre o botão e o texto */
+}
+
+.form-column .arquivo-label {
+    background-color: #3e4095;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 13px;
+}
+.form-column .arquivo-label:hover {
+    background-color: white;
+    transform: scale(0.93);
+    color: #3e4095;
+    border: 1px solid #3e4095;
+}
+
+.form-column .arquivo-nome {
+    font-size: 11px;
+    color: black;
+}
+
+/* Estiliza o parágrafo dos formatos */
+.form-column p {
+    font-size: 14px;
+    color: black;
+    margin-top: 5px;
+}
+
+
+
+/* -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
+
+.container2 {
+    background-color: #fff;
+    width: 48%;
+    min-height: 50vh;
+    height: auto;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    font-family: Montserrat, sans-serif;
+    display: inline-block;
+    justify-content: center;
+}
+
+.documentos-td {
+    text-align: center;
+    font-size: 13px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.data{
+    text-align: center;
+    font-size: 13px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.nome-empresa {
+    text-align: center;
+    font-size: 13px;
+    align-items: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.caixabotaoexcluir{
+    width: 70%;
+    height: 32%;
+    background-color: transparent;
+    align-items: center;
+    border-radius: 20px;
+    align-content: center;
+    font-family: Montserrat, sans-serif;
+    font-size: 14px;
+    transition: transform 0.3s;
+}
+.caixabotaoexcluir:hover {
+    transform: scale(0.92);
+}
+.buttonexcluir{
+    background-color: transparent;
+    color: black;
+    width: 100%;
+    height: 100%;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-family: Montserrat, sans-serif;
+    font-size: 14px;
+    align-self: center;
+    
+}
+
+.table {
+    width: 100%;
+    margin-left: 0%;
+}
+
+tr {
+    height: 50px;
+}

@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block title %}Contativa Contabilidade{% endblock %}
+
+{% block main_styles %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/inicio.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+
+<div class="welcome-message">
+    {% if nome_usuario and nome_empresa %}
+        <h2>Bem-vindo(a), {{ nome_usuario }}!</h2>
+        <p>Empresa: {{ nome_empresa }}</p>
+    {% elif nome_usuario %}
+        <h2>Bem-vindo(a), {{ nome_usuario }}!</h2>
+    {% else %}
+        <h2>Bem-vindo(a)!</h2>
+    {% endif %}
+</div>
+
+<script>
+    function formatCNPJ(input) {
+            // Remove qualquer caractere não numérico do valor atual do campo
+            var cnpj = input.value.replace(/\D/g, '');
+
+            // Formata o CNPJ com os caracteres '.' '/', e '-' conforme o usuário digita
+            var formattedCNPJ = '';
+            
+            for (var i = 0; i < cnpj.length; i++) {
+                if (i === 2 || i === 5) {
+                formattedCNPJ += '.';
+                } else if (i === 8) {
+                formattedCNPJ += '/';
+                } else if (i === 12) {
+                formattedCNPJ += '-';
+                }
+                formattedCNPJ += cnpj[i];
+            }
+
+            // Define o valor formatado de volta no campo
+            input.value = formattedCNPJ;
+        }
+</script>
+{% endblock %}
